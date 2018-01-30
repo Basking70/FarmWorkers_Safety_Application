@@ -1,0 +1,73 @@
+    
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<div class="w3-container">
+
+<h3 translate="admin.farm.Farm_Information" >Farm's Information</h3><br>
+
+<button class="btn btn-success" translate="admin.farm.Create_A_New_Farm_label" ng-click="editFarm('new')">&#9998; Create A New Farm </button><br><br>
+    
+<form ng-hide="hideform" style="width:30%">
+
+        <ul>
+            <li ng-repeat="message in messages" class="error-msg" >
+			{{message}}
+            </li>
+	    </ul>
+
+  <h3 ng-hide="createTitle" translate="admin.farm.Create_A_New_Farm_label" >Create A New Farm:</h3>
+  <h3 ng-hide="editTitle" translate="admin.farm.Edit_The_Farm_label">Edit The Farm:</h3>
+    <label translate="admin.farm.farm_name_label" >Farm Name:</label> 
+    <input class="w3-input w3-border" type="text" ng-model="FarmName" ng-disabled="!edit" placeholder="Farm Name">
+  <br>
+    <label translate="admin.farm.owner_label" >Farm Owner:</label>
+    <input class="w3-input w3-border" type="text" ng-model="FarmOwner" ng-disabled="!edit" placeholder="Farm Owners Name">
+  <br>
+    <label translate="admin.farm.farm_address_label" >Farm Address:</label>
+    <input class="w3-input w3-border" type="text" ng-model="FarmHouseNumberStreetAddress" ng-disabled="!edit" placeholder="Farm Address">
+  <br>
+    <label translate="admin.farm.farm_city_label" >City:</label>
+    <input class="w3-input w3-border" type="text" ng-model="FarmCity" ng-disabled="!edit" placeholder="City">
+  <br>
+    <label translate="admin.farm.farm_State_label" >State:</label>
+    <input class="w3-input w3-border" type="text" ng-model="FarmState" ng-disabled="!edit" placeholder="State">
+ <br>
+    <label translate="admin.farm.farm_Country_label" >Country:</label>
+    <input class="w3-input w3-border" type="text" ng-model="FarmCountry" ng-disabled="!edit" placeholder="Country">
+ <br>
+    <label translate="admin.farm.farm_zipcode_label" >Zip Code:</label>
+    <input class="w3-input w3-border" type="text" ng-model="FarmZipCode" ng-disabled="!edit" placeholder="Zip Code">
+ <br>
+<input type=submit class="btn btn-success"  ng-disabled="error || incomplete" ng-click="saveFarm(farm.fid)" &#10004; translate="admin.farm.farm_Save_Changes" value="Save Changes"/>
+
+<input type=submit class="btn btn-danger"  ng-click="CancelFarm(farm.fid)" &#10004;  translate="admin.farm.farm_Cancel" value="Cancel"/><br><br>
+</form>
+
+<table class="w3-table-all w3-hoverable" style="width:100%"><br>
+  <tr>
+    <th translate="admin.farm.farm_name_label" >Farm Name</th>
+    <th translate="admin.farm.owner_label" >Farm Owner</th>
+    <th translate="admin.farm.farm_city_label" >City</th>
+    <th translate="admin.farm.farm_State_label" >State</th>
+    <th translate="admin.farm.farm_Number_Of_FarmWorkers_In_That_Farm_label" >Number Of FarmWorkers In That Farm</th> 
+    <th translate="admin.farm.btn_Edit" >Edit</th>
+    <th translate="admin.farm.btn_Delete" >Delete</th>
+  </tr>
+  <tr ng-repeat="farm in farms">
+    <td>{{ farm.FarmName }}</td>
+    <td>{{ farm.FarmOwnersName }}</td>
+    <td>{{ farm.FarmCity }}</td>
+    <td>{{ farm.FarmState }}</td>
+    <td>{{ farm.NumberOfFarmWorkers }}</td>
+    <td>
+      <button class="btn btn-success"  translate="admin.farm.btn_Edit" ng-click="editFarm(farm.FarmID)">&#9998; Edit</button>
+    </td>
+    <td>
+      <button class="btn btn-danger" translate="admin.farm.btn_Delete" ng-click="removeFarm(farm.FarmID)">&#9998; Delete</button>
+    </td>
+  </tr>
+</table>
+<br>
+
+
+
+</div>

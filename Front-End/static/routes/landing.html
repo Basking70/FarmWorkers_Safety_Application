@@ -1,0 +1,88 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<h1 translate="title" class="text-center brand-title">Farmworker App</h1>
+		</div>
+	</div>
+	<div class="row vcenter landing">
+		<div class="col-md-6 col-md-push-6 margin-base-vertical">
+			<div class="panel panel-landing panel-landing-login">
+				<form name="landingForm" ng-submit="$ctrl.mode === 'Login' ? $ctrl.doLogin() : $ctrl.doForgetPassword()" novalidate>
+					<div class="row align-middle" ng-if="$ctrl.mode === 'Login'">
+						<h3>Login</h3>
+						<div class="form-group col-md-12">
+							<label for="usernameInput"><span translate="landing.username_label">UserName </span> <span translate="landing.phone_hint"></span></label>
+							<input name="usernameInput" type="text" class="form-control" ng-model="$ctrl.username" id="usernameInput" required>
+							<div ng-if="landingForm.$submitted">
+								<span class="error-msg" ng-show="landingForm.usernameInput.$touched && landingForm.usernameInput.$error.required" translate="landing.username_required">User Name is required.</span>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<label for="passwordInput"><span translate="landing.password_label">Password </span></label>
+							<input name="passwordInput" type="password" class="form-control" ng-model="$ctrl.password" id="passwordInput" required>
+							<div ng-if="landingForm.$submitted">
+								<span class="error-msg" ng-show="landingForm.passwordInput.$touched && landingForm.passwordInput.$error.required" translate="landing.password_required">Password is required.</span>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<a href="#" style="color:#5ba2ff" ng-click="$ctrl.changeMode('ForgetPassword')"><b><u translate="landing.forget_password_label">Forgot your password?</u></b></a>
+						</div>
+					</div>
+					<div class="row align-middle" ng-if="$ctrl.mode === 'ForgetPassword'">
+						<h3>Forget Password</h3>
+						<div class="form-group col-md-12">
+							<label for="usernameInput"><span translate="landing.username_label">UserName </span> <span translate="landing.phone_hint"></span></label>
+							<input name="usernameInput" type="text" class="form-control" ng-model="$ctrl.username" id="usernameInput" required>
+							<div ng-if="landingForm.$submitted">
+								<span class="error-msg" ng-show="landingForm.usernameInput.$touched &&landingForm.usernameInput.$error.required" translate="landing.username_required">User Name is required.</span>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<a href="#" style="color:#5ba2ff" ng-click="$ctrl.changeMode('Login')"><b><u translate="landing.back_to_login_label">Back to Login</u></b></a>
+						</div>
+						<div class="form-group col-md-12">
+							<p class="text-center">
+								<button type="submit" class="btn btn-success" translate="landing.btn_forgetpassword" />
+							</p>
+						</div>
+					</div>
+					<div class="row" ng-show="$ctrl.mode === 'Login'">
+						<div class="col-md-offset-3 col-md-3">
+							<p class="text-center">
+								<button type="submit" class="btn btn-success" translate="landing.btn_login" />
+							</p>
+
+						</div>
+						<div class="col-md-3">
+							<p class="text-center">
+								<button type="button" class="btn btn-primary" ng-click="$ctrl.goToRegister()" translate="landing.btn_register" />
+							</p>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-6 col-md-pull-6">
+			<div class="panel panel-landing panel-landing-info">
+				<h3 translate="register.offer_title"></h3>
+				<ul>
+					<li translate="register.offer_1">Lorem ipsum</li>
+					<li translate="register.offer_2">Lorem ipsum2</li>
+					<li translate="register.offer_3">Lorem ipsum3</li>
+					<li translate="register.offer_4">Lorem ipsum4</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<style>
+	body {
+		background: url('/assets/images/background.jpg') no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+</style>

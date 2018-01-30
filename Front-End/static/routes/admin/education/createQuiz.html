@@ -1,0 +1,129 @@
+   
+        
+        
+<!-- Modal appears when the page loads and allows the user to enter the name of the quiz, description and choose the document that supports this quiz -->
+
+        <!-- Modal -->
+        
+        <div class="modal col-md-6 col-md-offset-3 fade" id="myModal">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h4>Quiz Information</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Name">Name of the quiz:</label>
+                            <input ng-model="QuizName" type="text" class="form-control" id="ModalName">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea ng-model="Description" class="form-control" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="sel1">To which educational content relates to:</label>
+                          <select  class="form-control" id="relation" ng-model="relatedTopic">
+                            <option ng-repeat="document in documents" value={{document.IDEducationalContent}} >{{document.DescriptionEducationalContent}}</option>
+       
+                          </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class ="btn btn-primary center-block" data-dismiss="modal" id="modals"> Submit </button>
+                </div>
+            </div>
+        </div>
+        <!-- End of the modal -->
+        
+        
+        
+        
+        
+        <!-- Header of the page -->
+        <div class="container-fluid">
+            <div class="row" id="header">
+                <h1>Create quiz</h1>
+                <div class="row">
+                    <p class="col-md-4">Use the following form to create the quiz questions. <br> In order to add more Quiz question and answer fields click on <span style="font-size: 1.2em;" class="glyphicon glyphicon-plus"></span> or <span style="font-size: 1.2em;" class="glyphicon glyphicon-minus"></span> to cleare extra fields.</p>
+
+                    <!-- Submit, Save as a draft, and Exit buttons -->
+                    <button  style="margin-left: 1%;" ng-link="['QuizEducationAdmin']" class=" col-md-2 btn btn-danger btn-md pull-right">Exit</button>
+                    <button ng-click="submit(2)" ng-link="['QuizEducationAdmin']" style="margin-left: 1%;" class=" col-md-2 btn btn-warning btn-md pull-right"  >Save as a draft</button>
+                    <button ng-click="submit(1)" ng-link="['QuizEducationAdmin']" style="margin-left: 1%;" class=" col-md-2 btn btn-success btn-md pull-right" >Submit the Quiz</button>
+
+                </div>		
+              </div>
+            
+        </div>
+        
+        <!-- end of Header -->
+        
+            
+            <div class="container-fluid" >
+                <!-- add quiz button -->
+                <div class="row">
+                        <h2>Questions
+                        <button ng-click="addQuestion()" class="pull-right btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Questions</button>
+                        </h2>
+                </div>
+                
+                
+                <div ng-show="showHelp">   
+                    <h3 class="text-center text-muted"> Click on <strong>'<span style='font-size: .8em;' class='glyphicon glyphicon-plus'></span>Question' </strong> to generate Question field </h3>
+                </div>
+                
+                
+                <!--- Adding form elements --->
+                
+                <div class="row" ng-cloak>
+                    <ol style="font-weight:600;" >
+                        <li ng-repeat=" QuestionFields in Quiz.QuizQuestions"  >
+                            <form>
+                                <div class="form-group">
+                                    <label>Question:</label>
+                                    <input type="text" class="form-control" ng-model="QuestionFields.Question" >
+                                </div>
+                                <ol>
+                                    <li style="margin-left:2%;" ng-repeat="AnswerFields in QuestionFields.Answers" class="form-group">
+                                        <label>Answer:</label>
+                                        <input type="text" class="form-control" ng-model="AnswerFields.Answer">
+                                        <div class='form-group'  > 
+                                            <label ng-if="AnswerFields.AnswerID >2" ng-click="deleteAnswer(QuestionFields.QuestionID,AnswerFields.AnswerID)" class='btn btn-danger btn-xs pull-right'><span style='font-size: .8em;'class='glyphicon glyphicon-trash'></span></label>
+                                        </div>
+                                    </li>
+                                    <!-- End of Answe fields -->
+                                    
+                                    <!-- Add Answer button-->
+                                    <div class='form-group'>
+                                        <label class='btn btn-primary btn-xs' ng-click="addAnswerfield(QuestionFields.QuestionID)"><span style='font-size: .8em;' class='glyphicon glyphicon-plus'></span> Answer</label>
+                                    </div>
+                                    <!-- End of add answer field -->
+                                    
+                                </ol>
+                                    <div class="form-group ">
+                                        <label>Correct Answer:</label>
+                                            <select style="margin-left:2%;" class="form-control" ng-model="QuestionFields.CorrectA">
+                                                <option ng-repeat="AnswerFields in QuestionFields.Answers" value={{AnswerFields.AnswerID}}>{{AnswerFields.Answer}}</option>
+                                            </select>
+                                    </div>
+                                    <div class='form-group' > 
+                                            <label ng-click="deleteQuestion(QuestionFields.QuestionID)" ng-if="QuestionFields.QuestionID >1"  class='btn btn-danger btn-sm'><span style='font-size: .8em;'class='glyphicon glyphicon-trash'></span> Delete this question</label>
+                                    </div>
+                            </form>
+                            <hr>
+                        </li>
+                    </ol>
+                
+                </div>
+                <!--- end of Adding form elemetns --->
+
+           </div>
+
+
+<script>
+    		$(document).ready(function(){
+			$("#myModal").modal();
+		
+		});
+</script>

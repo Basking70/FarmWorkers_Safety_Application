@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-md-offset-4 col-md-4">
+		<div class="input-group">
+	      <input type="text" class="form-control" ng-model="$ctrl.searchKeyword" placeholder="Search for documents">
+	      <div class="input-group-btn">
+	      	<button type="button" class="btn btn-default" aria-label="Search">
+	      		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	      	</button>
+	      </div>
+	    </div>
+	</div>
+
+</div>
+<br/>
+<div class="row">
+	<div class="panel panel-default">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Documents</div>
+	  <div class="panel-body">
+	    <p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. </p>
+	  </div>
+
+	  <!-- List group -->
+	  <ul class="list-group">
+	    <li class="list-group-item" ng-repeat="document in $ctrl.displayedDocumentList">
+	    	<div class="row">
+		    	<div class="col-xs-8">
+						<p>
+							<a ng-click="$ctrl.openDocument(document)" ng-href="{{document.LinkEducationalContent}}" target="_blank">{{document.DescriptionEducationalContent}}</a>
+							<div>
+								<span class="label label-info">Added: {{document.DateEducationalContentCreated | date : 'MM/dd/yyyy'}}
+								</span>
+							</div>
+						</p>
+						
+		   		</div>
+		   		<button type="button" class="col-xs-3 btn disabled" style="cursor:default;" ng-class="$ctrl.checkIsViewed(document.IDEducationalContent) ? 'btn-success' : 'btn-danger'">
+		   		{{ $ctrl.checkIsViewed(document.IDEducationalContent) ? 'Viewed' : 'Not Viewed' }}
+		   		</button>
+	   		</div>
+	    </li>
+	  </ul>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div>
+	<b translate="setting.language.label">Language</b> : 
+	<a ng-class="$ctrl.getCurrentLanguage() === 'en' ? 'active' : ''">
+		<span ng-click="$ctrl.changeLanguage('en')" translate="setting.language.english">English</span>
+	</a>
+	&nbsp;/&nbsp;
+	<a ng-class="$ctrl.getCurrentLanguage() === 'es' ? 'active' : ''">
+		<span ng-click="$ctrl.changeLanguage('es')" translate="setting.language.spanish">Spanish</span>
+	</a>
+</div>

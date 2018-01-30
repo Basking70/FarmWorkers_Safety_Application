@@ -1,0 +1,66 @@
+<div class="row">
+	<form class="form-horizontal">
+		<div class="col-md-6">
+			<section class="farm-info">
+				<h2><b><span translate="main_landing.welcome">Welcome!</span> {{$ctrl.credential.User.UserName}} {{$ctrl.credential.User.UserLastName}}</b></h2>
+				<registered-farm current-farm="$ctrl.credential.User.CurrentFarm"/>
+			</section>
+		</div>
+		<div class="col-md-6 text-bigger">
+			<section class="personal-info">
+				<div class="col-xs-10"><span><h3 style="display: inline;"><b translate="main_landing.user_information">User Information</b></h3> (<a ng-link=['Profile','UpdateProfile']><u>Edit</u></a>)</span></div>
+				<div class="row align-middle">
+					<div class="col-xs-6 col-md-4 text-right">
+						<label class="control-label" translate="main_landing.phone_label"></label> :
+					</div>
+					<div class="col-xs-6 col-md-8">
+						<p class="form-control-static">
+							{{$ctrl.credential.User.UserPhoneNumber}}
+						</p>
+					</div>
+					<div class="col-xs-6 col-md-4 text-right">
+						<label class="control-label" translate="main_landing.email_label"></label> :
+					</div>
+					<div class="col-xs-6 col-md-8">
+						<p class="form-control-static">
+							{{$ctrl.credential.User.UserEmail}}
+						</p>
+					</div>
+					<div class="col-xs-6 col-md-4 text-right">
+						<label class="control-label" translate="main_landing.birthdate_label"></label> :
+					</div>
+					<div class="col-xs-6 col-md-8">
+						<p class="form-control-static">
+							{{$ctrl.credential.User.UserDateOfBirth | date:'MM/dd/yyyy'}}
+						</p>
+					</div>
+					<div class="col-xs-6 col-md-4 text-right">
+						<label class="control-label" translate="main_landing.gender_label"></label> :
+					</div>
+					<div class="col-xs-6 col-md-8">
+						<p class="form-control-static">
+							{{$ctrl.credential.User.UserGender}}
+						</p>
+					</div>
+					<div class="col-xs-6 col-md-4 text-right">
+						<label class="control-label" translate="main_landing.weight_label"></label> :
+					</div>
+					<div class="col-xs-6 col-md-8">
+						<p class="form-control-static">
+							{{$ctrl.credential.User.UserWeight}}
+						</p>
+					</div>
+					<div class="col-xs-6 col-md-4 text-right">
+						<label class="control-label" translate="main_landing.height_label"></label> :
+					</div>
+					<div class="col-xs-6 col-md-8">
+						<p class="form-control-static">
+							{{$ctrl.credential.User.UserHeight}}
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
+
+	</form>
+</div>

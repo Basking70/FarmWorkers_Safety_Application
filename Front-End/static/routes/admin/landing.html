@@ -1,0 +1,26 @@
+<div class="row">
+	<form class="form-horizontal">
+		<div class="col-md-12">
+		 	<section class="system-info">
+		 		<h2><b>Welcome! {{$ctrl.credential.User.UserName}} {{$ctrl.credential.User.UserLastName}}</b></h2>
+		 		<div class="row" style="padding-left:10px">
+		 			<div class="col-xs-12">
+				 		<h4><label class="control-label" translate="admin.landing.farmworker_count_label"></label> : {{$ctrl.farmworkerCount}}</h4>
+				 	</div>
+				 	<div class="col-xs-12">
+				 		<h4><label class="control-label" translate="admin.landing.farm_count_label"></label> : {{$ctrl.farmCount}} </h4>
+				 	</div>
+				 	<div class="col-xs-12">
+			 			<h4><label class="control-label" translate="admin.landing.video_count_label"></label> : {{$ctrl.videoCount}} </h4>
+			 		</div>
+                     <div class="col-xs-12">
+			 			<h4><label class="control-label" translate="admin.landing.document_count_label"></label> : {{$ctrl.documentCount}} </h4>
+			 		</div>
+                     <div class="col-xs-12">
+			 			<h4><label class="control-label" translate="admin.landing.quiz_count_label"></label> : {{$ctrl.quizCount}} </h4>
+			 		</div>
+				</div>
+		 	</section>
+		</div>
+	</form>
+</div>

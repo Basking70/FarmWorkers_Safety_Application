@@ -1,0 +1,41 @@
+<div class="row">
+    <form name="myForm" novalidate>
+        <div>
+            <h3><b  translate="profile.update_farm.header">Update Your Farm</b></h3>
+            <button class="btn btn-default" ng-click="$ctrl.addUserFarm()" role-visible="['Farm Owner']">Add More</button>
+        </div>
+        <div class="panel panel-body" ng-repeat="userFarm in $ctrl.currentUserFarms">
+            <div class="col-md-6 margin-base-vertical" >
+                <div class="row align-middle" >
+                    <div class="form-group col-md-12">
+                        <label for="farmInput" translate="profile.update_farm.farm_select_label">Choose Farm <span class="required">*</span></label>
+                        <farm-select-list name="farmInput" id="farmInput" ng-model="userFarm.FarmID" out-farm-model="$ctrl.selectedFarm[$index]">
+                        <span class="error-msg" ng-show="myForm.farmInput.$touched && myForm.farmInput.$error.required" translate="profile.update_farm.farm_select_required">Farm must be chosen.</span>
+                    </div>
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" ng-click="$ctrl.setLatest(userFarm)" ng-if="userFarm.IsLatest">Latest</button>
+                        <button class="btn btn-default" ng-click="$ctrl.setLatest(userFarm)" ng-if="!userFarm.IsLatest">Set as Latest</button>
+                        <button class="btn btn-danger pull-right" ng-click="$ctrl.removeUserFarm(userFarm)" role-visible="['Farm Owner']">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 margin-base-vertical">
+                <div class="row align-middle">
+                
+                    <div class="col-xs-8">
+                            <h4><label class="control-label" translate="profile.update_farm.farm_name_label"></label> : {{$ctrl.selectedFarm[$index].FarmName}}</h4>
+                    </div>
+                    <div class="col-xs-12">
+                        <h4><label class="control-label" translate="profile.update_farm.farm_address_label"></label> : {{$ctrl.selectedFarm[$index].FarmHouseNumberStreetAddress }}  {{$ctrl.selectedFarm[$index].FarmState }}, {{$ctrl.selectedFarm[$index].FarmCity }}, {{$ctrl.selectedFarm[$index].FarmCountry }} {{$ctrl.selectedFarm[$index].FarmZipCode }} </h4>
+                    </div>
+                    
+                </div> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <button class="btn btn-success" ng-click="$ctrl.doUpdate()" translate="profile.update_farm.btn_update"/>
+            </div>
+        </div>
+    </form>
+</div>

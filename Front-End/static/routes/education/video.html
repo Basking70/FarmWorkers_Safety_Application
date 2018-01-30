@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col-md-offset-4 col-md-4">
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="$ctrl.searchKeyword" placeholder="Search for videos">
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default" aria-label="Search">
+	      		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	      	</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+<br/>
+<div class="row">
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Videos</div>
+		<div class="panel-body">
+			<p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry.</p>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="video in $ctrl.displayedVideoList">
+					<div class="thumbnail video-thumbnail">
+						<a ng-href="#" ng-click="$ctrl.openVideo(video)"><img ng-src="https://i1.ytimg.com/vi/{{video.YoutubeId}}/0.jpg" alt="..."></a>
+						<div class="caption">
+							<div class="row">
+								<!--<div class="col-xs-2">
+		        			<button type="button" class="col-md-3 btn btn-circle btn-danger glyphicon glyphicon-thumbs-down"></button>
+		        	</div>-->
+								<div class="col-xs-12 text-center"><b>{{video.DescriptionEducationalContent}}</b></div>
+
+								<!--<div class="col-xs-2">
+		        		<button type="button" class="col-md-3 btn btn-circle btn-success glyphicon glyphicon-thumbs-up"></button>
+		        	</div>-->
+							</div>
+						</div>
+						<div class="metainfo">
+							<div class="col-xs-4 pull">
+								<span class="label label-success" ng-if="$ctrl.checkIsWatched(video.IDEducationalContent)">Watched</span>
+								<span class="label label-danger" ng-if="!$ctrl.checkIsWatched(video.IDEducationalContent)">Not Watched</span>
+							</div>
+							<div class="col-xs-6 pull-right text-right">
+								<span class="label label-info">Added: {{video.DateEducationalContentCreated | date : 'MM/dd/yyyy'}}
+							</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

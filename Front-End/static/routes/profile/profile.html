@@ -1,0 +1,73 @@
+<div class="row">
+    <form name="profileForm" novalidate>
+        <div class="col-md-6 margin-base-vertical">
+            <h3><b  translate="profile.update_profile.header">Update Your Profile</b></h3>
+            <div class="row align-middle">
+
+                <div class="form-group col-md-12">
+                    <label for="fnameInput" translate="profile.update_profile.fname_label">First Name <span class="required">*</span></label>
+                    <input name="fnameInput" type="text" class="form-control" id="emailInput" ng-model="$ctrl.credential.User.UserName" required>
+                    <div ng-if="profileForm.$submitted">
+                        <span class="error-msg" ng-show="profileForm.fnameInput.$touched &&profileForm.fnameInput.$error.required" translate="profile.update_profile.fname_required">Email is required.</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="lnameInput" translate="profile.update_profile.lname_label">Last Name <span class="required">*</span></label>
+                    <input name="lnameInput" type="text" class="form-control" id="lnameInput" required ng-model="$ctrl.credential.User.UserLastName">
+                    <div ng-if="profileForm.$submitted">
+                        <span class="error-msg" ng-show="profileForm.lnameInput.$touched &&profileForm.lnameInput.$error.required" translate="profile.update_profile.lname_required">Phone is required.</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="genderInput" translate="profile.update_profile.gender_label">Gender <span class="required">*</span></label>
+                    <select name="genderInput" type="text" class="form-control" id="genderInput" ng-model="$ctrl.credential.User.UserGender"
+                        required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                    <div ng-if="profileForm.$submitted">
+                        <span class="error-msg" ng-show="profileForm.genderInput.$touched && profileForm.genderInput.$error.required" translate="profile.update_profile.gender_required">Gender is required.</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="weightInput" translate="profile.update_profile.weight_label">Weight</label>
+                    <input name="weightInput" type="text" class="form-control" id="weightInput" ng-model="$ctrl.credential.User.UserWeight">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="heightInput" translate="profile.update_profile.height_label">Height</label>
+                    <input name="heightInput" type="text" class="form-control" id="heightInput" ng-model="$ctrl.credential.User.UserHeight">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 margin-base-vertical">
+            <h3><b>&nbsp;</b></h3>
+            <div class="row align-middle">
+                <div class="form-group col-md-12">
+                    <label for="phoneInput" translate="profile.update_profile.phone_label">Phone <span class="required">*</span></label>
+                    <input name="phoneInput" type="text" class="form-control" id="phoneInput" ng-model="$ctrl.credential.User.UserPhoneNumber"
+                        required>
+                    <div ng-if="profileForm.$submitted">
+                        <span class="error-msg" ng-show="profileForm.phoneInput.$touched &&profileForm.phoneInput.$error.required" translate="profile.update_profile.phone_required">Phone is required.</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="emailInput" translate="profile.update_profile.email_label">Email <span class="required">*</span></label>
+                    <input name="emailInput" type="text" class="form-control" id="emailInput" ng-model="$ctrl.credential.User.UserEmail" required>
+                    <div ng-if="profileForm.$submitted">
+                        <span class="error-msg" ng-show="profileForm.emailInput.$touched &&profileForm.emailInput.$error.required" translate="profile.update_profile.email_required">Email is required.</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="birthdateInput" translate="profile.update_profile.birthdate_label">Birth Date <span class="required">*</span></label>
+                    <input name="birthdateInput" date-time format="MM/dd/yyyy" min-view="date" max-view="year" view="date" type="text" class="form-control"
+                        id="birthdateInput" ng-model="$ctrl.credential.User.UserDateOfBirth">
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <div class="text-center">
+                <button class="btn btn-success" ng-click="$ctrl.doUpdate()" translate="profile.update_profile.btn_update" />
+            </div>
+        </div>
+    </form>
+</div>

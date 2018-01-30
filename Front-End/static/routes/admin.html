@@ -1,0 +1,86 @@
+<!--<div class="row">
+	<div class="col-md-offset-2 col-md-8 text-center">
+		<div class="btn-group btn-group-justified" role="group">
+		    <a ng-link="['FarmworkerAdmin']" class="btn" ng-class="$ctrl.isActive(['FarmworkerAdmin'])? 'btn-success' : 'btn-default'">Farmworkers</a>
+	      	<div class="btn-group" role="group"> 
+		      	<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-class="$ctrl.isActive(['EducationAdmin'])? 'btn-success' : 'btn-default'"> Educational <span class="caret"></span> 
+		      	</a> 
+		      	<ul class="dropdown-menu menu"> 
+		      		<li class="presentation" ng-class="$ctrl.isActive(['EducationAdmin','VideoEducationAdmin'])? '' : ''"><a ng-link="['EducationAdmin','VideoEducationAdmin']">Video</a></li> 
+		      		<li class="presentation" ng-class="$ctrl.isActive(['EducationAdmin','QuizEducationAdmin'])? '' : ''"><a ng-link="['EducationAdmin','QuizEducationAdmin']">Quiz</a></li> 
+		      		<li class="presentation" ng-class="$ctrl.isActive(['EducationAdmin','DocumentEducationAdmin'])? '' : ''"><a ng-link="['EducationAdmin','DocumentEducationAdmin']">Document</a></li> 
+	      		</ul> 
+      		</div>
+	        <a ng-link="['FarmAdmin']" class="btn" ng-class="$ctrl.isActive(['FarmAdmin'])? 'btn-success' : 'btn-default'">Farms</a>
+	        <a ng-link="['SecurityAdmin']" class="btn" ng-class="$ctrl.isActive(['SecurityAdmin'])? 'btn-success' : 'btn-default'">Security</a>
+		
+		</div>
+	</div>
+</div>
+<hr/>-->
+<script>
+/* off-canvas sidebar toggle */
+$('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+    $('.collapsible').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
+});
+</script>
+<div class="nav-sidebar">
+    <div class="row-offcanvas row-offcanvas-left">
+        <!-- sidebar -->
+        <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
+			<ul class="nav in visible-xs">
+				<li>
+					<a href="#" data-toggle="offcanvas">
+						<span class="glyphicon glyphicon-th-list"></span>
+						<span class="collapsible in hidden-xs">Admin Menu</span>
+					</a>
+				</li>
+			</ul>
+            <ul class="nav collapsible in hidden-xs" id="menu">
+                <li>
+					<a ng-link="['AdminLanding']">
+						<span class="glyphicon glyphicon-dashboard"></span> <span class="collapsible in hidden-xs" translate="admin_navigation.dashboard">Dashboard</span>
+					</a>
+				</li>
+                <li>
+					<a ng-link="['FarmAdmin']">
+						<span class="glyphicon glyphicon-apple"></span> <span class="collapsible in hidden-xs" translate="admin_navigation.farms">Manage Farms</span>
+					</a>
+				</li>
+                <li>
+					<a href="#" data-target="#farmworkers" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> <span class="collapsible in hidden-xs" translate="admin_navigation.farmworkers">Manage Farmworkers</span> <span class="caret collapsible hidden-xs"></span></a>
+                    <ul class="nav nav-stacked collapse left-submenu" id="farmworkers">
+                        <li><a ng-link="['FarmworkerAdmin','AddFarmworker']">Add</a></li>
+                        <li><a ng-link="['FarmworkerAdmin','SearchFarmworker']">Search</a></li>
+                    </ul>
+                </li>
+				<li>
+					<a href="#" data-target="#farmowners" data-toggle="collapse"><span class="glyphicon glyphicon-user"></span> <span class="collapsible in hidden-xs" translate="admin_navigation.farmowners">Manage Farmers/Farmowners</span> <span class="caret collapsible hidden-xs"></span></a>
+                    <ul class="nav nav-stacked collapse left-submenu" id="farmowners">
+                        <li><a ng-link="['FarmownerAdmin','AddFarmowner']">Add</a></li>
+                        <li><a ng-link="['FarmownerAdmin','SearchFarmowner']">Search</a></li>
+                    </ul>
+                </li>
+				<li>
+					<a href="#" data-target="#educational" data-toggle="collapse"><span class="glyphicon glyphicon-book"></span> <span class="collapsible in hidden-xs" translate="admin_navigation.educational_contents">Manage Educational Contents</span> <span class="caret collapsible hidden-xs"></span></a>
+                    <ul class="nav nav-stacked collapse left-submenu" id="educational">
+                        <li ng-class="$ctrl.isActive(['EducationAdmin','VideoEducationAdmin'])? '' : ''"><a ng-link="['EducationAdmin','VideoEducationAdmin']">Video</a></li> 
+		      			<li ng-class="$ctrl.isActive(['EducationAdmin','QuizEducationAdmin'])? '' : ''"><a ng-link="['EducationAdmin','QuizEducationAdmin']">Quiz</a></li> 
+		      			<li ng-class="$ctrl.isActive(['EducationAdmin','DocumentEducationAdmin'])? '' : ''"><a ng-link="['EducationAdmin','DocumentEducationAdmin']">Document</a></li> 
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /sidebar -->
+
+        <!-- main right col -->
+        <div class="nav-sidebar-main column col-sm-9 col-xs-11">
+            <!--<p class="visible-xs"><a href="#" data-toggle="offcanvas"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">Link 1</span></a></p>-->
+            <p>
+                <ng-outlet></ng-outlet>
+            </p>
+        </div>
+        <!-- /main -->
+    </div>
+</div>

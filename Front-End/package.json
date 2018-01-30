@@ -1,0 +1,59 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "description": "Angular.JS Single-Page Web",
+  "author": {
+    "name": "Theerapat Chawannakul",
+    "email": "theerapat.cha@gmail.com"
+  },
+  "scripts": {
+    "test": "npm run test:unit",
+    "start": "webpack && lite-server",
+    "webpack": "webpack",
+    "webpack:watch": "webpack --progress --colors --watch",
+    "env:test": "set NODE_ENV=test",
+    "pretest:unit": "npm run env:test",
+    "test:unit": ".\\node_modules\\.bin\\karma start --single-run",
+    "test:unit:watch": ".\\node_modules\\.bin\\karma start",
+    "jshint": "jshint app/. test/."
+  },
+  "dependencies": {
+    "@angular/router": "0.2.0",
+    "angular": "^1.5.8",
+    "angular-datepicker": "^1.0.5",
+    "angular-modal-service": "^0.10.1",
+    "angular-translate": "^2.13.1",
+    "angular-ui-bootstrap": "^2.0.2",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0",
+    "ng-table": "^3.0.1",
+    "toastr": "^2.1.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "chai": "^3.5.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-sonar": "^3.0.0",
+    "jshint": "^2.9.2",
+    "karma": "^1.5.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sinon": "^1.0.5",
+    "lite-server": "^2.2.2",
+    "mocha": "^3.0.2",
+    "rxjs": "^5.0.0-beta.6",
+    "sinon": "^1.17.5",
+    "sonarqube-scanner": "^1.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "zone.js": "^0.6.13"
+  }
+}

@@ -1,0 +1,92 @@
+<div class="row">
+	<form class="form-horizontal">
+		<div class="col-md-6">
+		 	<section class="farm-info">
+		 		<h2><b>Welcome! {{$ctrl.credential.User.UserName}} {{$ctrl.credential.User.UserLastName}}</b></h2>
+		 		<div class="row" style="padding-left:10px">
+		 			<div class="col-xs-12">
+				 		<h4><label class="control-label" translate="profile.view.registered_farm_label"></label> : {{$ctrl.credential.User.CurrentFarm.FarmName}}</h4>
+				 	</div>
+				 	<div class="col-xs-12">
+				 		<h4><label class="control-label" translate="profile.view.farm_address_label"></label> : {{$ctrl.credential.User.CurrentFarm.FarmHouseNumberStreetAddress }}  {{$ctrl.credential.User.CurrentFarm.FarmState }}, {{$ctrl.credential.User.CurrentFarm.FarmCity }}, {{$ctrl.credential.User.CurrentFarm.FarmCountry }} {{$ctrl.credential.User.CurrentFarm.FarmZipCode }} </h4>
+				 	</div>
+					 <h3 class="col-xs-2 text-right">&nbsp;<a ng-link=['UpdateFarm']><span class="glyphicon glyphicon-edit"></span></a></h3>
+				 	<br/>
+				 	<div class="col-xs-12">
+			 			<h5><label class="control-label" translate="profile.view.farm_temperature_label"></label></h5>
+			 		</div>
+			 		<div class="col-xs-12">
+			 			<h2 class="text-center">78 &#8457;</h2> 
+			 			<hr/> 	
+			 		</div>
+
+			 		<div class="col-xs-12">
+						<label class="control-label" translate="profile.view.completed_quiz_label"></label> : 
+						0
+					</div>	
+					<div class="col-xs-12">
+						<label class="control-label" translate="profile.view.completed_edu_content_label"></label> : 
+						0
+					</div>	
+				</div>
+		 	</section>
+		</div>
+		<div class="col-md-6 text-bigger">
+			<section class="personal-info">
+				<h3 class="col-xs-10"><b>User Information</b></h3>
+				<h3 class="col-xs-2 text-right">&nbsp;<a ng-link=['UpdateProfile']><span class="glyphicon glyphicon-edit"></span></a></h3>
+				<div class="row align-middle">
+					<div class="col-xs-4 text-right">
+						<label class="control-label" translate="profile.view.phone_label"></label> : 
+					</div>
+					<div class="col-xs-8">
+						<p class="form-control-static">
+						{{$ctrl.credential.User.UserPhoneNumber}}
+						</p>
+					</div>
+					<div class="col-xs-4 text-right">
+						<label class="control-label" translate="profile.view.email_label"></label> : 
+					</div>
+					<div class="col-xs-8">
+						<p class="form-control-static">
+						{{$ctrl.credential.User.UserEmail}}
+						</p>
+					</div>
+					<div class="col-xs-4 text-right">
+						<label class="control-label" translate="profile.view.birthdate_label"></label> : 
+						</div>
+					<div class="col-xs-8">
+						<p class="form-control-static">
+						{{$ctrl.credential.User.UserDateOfBirth | date:'MM/dd/yyyy'}}
+						</p>
+					</div>
+					<div class="col-xs-4 text-right">
+						<label class="control-label" translate="profile.view.gender_label"></label> : 
+						</div>
+					<div class="col-xs-8">
+						<p class="form-control-static">
+						{{$ctrl.credential.User.UserGender}}
+						</p>
+					</div>
+					<div class="col-xs-4 text-right">
+						<label class="control-label" translate="profile.view.weight_label"></label> : 
+						</div>
+					<div class="col-xs-8">
+						<p class="form-control-static">
+						{{$ctrl.credential.User.UserWeight}}
+						</p>
+					</div>
+					<div class="col-xs-4 text-right">
+						<label class="control-label" translate="profile.view.height_label"></label> : 
+					</div>
+					<div class="col-xs-8">
+						<p class="form-control-static">
+						{{$ctrl.credential.User.UserHeight}}
+						</p>
+					</div>	
+	            </div>
+	        </section>
+		</div>
+		
+	</form>
+</div>

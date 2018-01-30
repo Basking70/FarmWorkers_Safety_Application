@@ -1,0 +1,81 @@
+ <div class="container-fluid">
+                <div class="row">
+                    <h1>Quiz Edit</h1>
+                    <p>In this page you can modify the and add information to existing quiz</p>
+                    <!-- Submit, Save as a draft, and Exit buttons -->
+                    <button  style="margin-left: 1%;" ng-link="['QuizEducationAdmin']" class=" col-md-2 btn btn-danger btn-md pull-right">Exit</button>
+                    <button ng-click="Submitted(2)" ng-link="['QuizEducationAdmin']" style="margin-left: 1%;" class=" col-md-2 btn btn-warning btn-md pull-right"  >Save as a draft</button>
+                    <button ng-click="Submitted(1)" ng-link="['QuizEducationAdmin']" style="margin-left: 1%;" class=" col-md-2 btn btn-success btn-md pull-right" >Submit the Quiz</button>
+                    
+                </div> 
+               
+            <!--Quiz name and Description-->
+               <div class="row">
+                    <form class="col-md-10">
+                        <div class="form-group">
+                            <label for="name" >Quiz Name:</label>
+                            <input style="text" id="name" ng-model="Quiz.QuizName" class="form-control" >
+                        </div>
+                       <div>
+                           <label for="descrip">Quiz Description:</label>
+                           <textarea class="form-control" ng-model='Quiz.QuizDescription' id="descript" rows="5"> </textarea>
+                       </div>
+                    </form> 
+                </div>
+            <!-- End of Quiz name and Description-->
+               
+               
+            <!-- Add question button  -->
+               <hr>
+            <div class="row">
+                    <button id="Add-questions" ng-click="addQuestion()" class=" pull-right btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Questions</button>
+            </div>
+
+               
+            <!-- Form Questions --->
+               <div class="row col-md-10">
+                   <ol style="font-weight:600;">
+                        <li ng-repeat="Question in Quiz.QuizQuestions">
+                            
+                            <form>
+                                <div class="form-group">
+                                    <label>Question:</label>
+                                    <input type="text" class="form-control" ng-model="Question.Question" >
+                                </div>
+                                <ol>
+                                    <!-- Answe fields -->
+                                    <li style="margin-left:2%;" class="form-group" ng-repeat="Answers in Question.QuizAnswers">
+                                        <label>Answer:</label>
+                                        <input type="text" class="form-control" name="{{Question.QuestionID}}" ng-model="Answers.Answer">
+                                        <div class='form-group'> 
+                                            <label ng-if="Answers.AnswerID >2" ng-click="deleteAnswer(Question.QuestionID,Answers.AnswerID)" class='btn btn-danger btn-xs pull-right'><span style='font-size: .8em;' class='glyphicon glyphicon-trash'></span></label>
+                                        </div>
+                                    </li>
+                                    <!-- End of Answe fields -->
+                                    
+                                    <!-- Add Answer button-->
+                                    <div class="form-group">
+                                        <label class='btn btn-primary btn-xs' ng-click="addAnswerfield(Question.QuestionID)"  id='Aadd' ><span style='font-size: .8em;' class='glyphicon glyphicon-plus'></span> Answer</label>
+                                    </div>
+                                    <!-- End of add answer field -->
+                                    
+                                </ol>
+                                    <div class="form-group">
+                                        <label>Correct Answer:</label>
+                                            <select style="margin-left:2%;" class="form-control" ng-model="Question.CorrectAnswer">
+                                                <option ng-repeat="Answers in Question.QuizAnswers" value={{Answers.AnswerID}}>{{Answers.Answer}}</option>
+                                            </select>
+                                    </div>
+                                    <div class='form-group' > 
+                                            <label ng-click="deleteQuestion(Question.QuestionID)" ng-if="Question.QuestionID >0"  class='btn btn-danger btn-sm'><span style='font-size: .8em;'class='glyphicon glyphicon-trash'></span> Delete this question</label>
+                                    </div>
+                            </form>
+                            <hr>
+                        </li>
+                    </ol>
+                </div>
+            <!-- End Form Questions ---> 
+               
+               
+               
+           </div> 

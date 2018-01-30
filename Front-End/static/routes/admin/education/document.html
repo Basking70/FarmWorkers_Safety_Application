@@ -1,0 +1,61 @@
+<div class="row">
+	<h4 class="col-md-12" translate="admin.education.document.upload_title">
+
+	</h4>
+	<div class="form-horizontal">
+		<div class="form-group">
+			<label for="uploadDocumentDescInput" class="col-sm-offset-1 col-sm-1 control-label">Description: </label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control" id="uploadDocumentDescInput" ng-model="$ctrl.newDocument.DescriptionEducationalContent">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="uploadDocumentUrl" class="col-sm-offset-1 col-sm-1 control-label">URL: </label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control" id="uploadDocumentUrl" ng-model="$ctrl.newDocument.LinkEducationalContent">
+			</div>
+			<div class="col-sm-2 text-center" ng-if="!$ctrl.isUpdate">
+				<button class="btn btn-success form-control" ng-click="$ctrl.doAdd()" translate="admin.education.document.btn_add" />
+			</div>
+			<div class="col-sm-offset-3 col-sm-6 text-center" ng-if="$ctrl.isUpdate">
+				<button class="btn btn-success" ng-click="$ctrl.doUpdate()" translate="admin.education.document.btn_update" />
+				<button class="btn btn-danger" ng-click="$ctrl.doCancelUpdate()" translate="admin.education.document.btn_cancel_update" />
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<div class="row" ng-if="!$ctrl.isUpdate">
+	<div class="panel panel-default">
+		<div class="panel-heading" translate="admin.education.document.existing_title"></div>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="document in $ctrl.documentList">
+				<div class="row">
+					<div class="col-xs-8">
+						<p>
+							<strong>{{ document.DescriptionEducationalContent }}</strong>
+							<div>
+								{{ document.LinkEducationalContent }}
+							</div>
+							<div>
+								<span class="label label-danger" ng-if="document.IsActive === '0'">Inactive</span>
+								<span class="label label-success" ng-if="document.IsActive === '1'">Active</span>
+								<span class="label label-warning" ng-if="document.IsActive === '2'">Draft</span>
+								<span class="label label-info">Added: {{document.DateEducationalContentCreated | date : 'MM/dd/yyyy'}}
+							</span>
+							</div>
+						</p>
+					</div>
+					<div class="col-xs-4 text-center">
+						<button class="btn btn-primary" ng-click="$ctrl.toggleUpdateDocument(document)" translate="admin.education.document.btn_edit"
+						/>
+						<button class="btn btn-danger" ng-click="$ctrl.doDisableDocument(document)" ng-if="document.IsActive === '1'" translate="admin.education.document.btn_disable"
+						/>
+						<button class="btn btn-success" ng-click="$ctrl.doEnableDocument(document)" ng-if="document.IsActive !== '1'" translate="admin.education.document.btn_enable"
+						/>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

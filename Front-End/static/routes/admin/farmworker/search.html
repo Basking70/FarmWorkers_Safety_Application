@@ -1,0 +1,118 @@
+<div class="row ">
+    <div class="col-md-offset-3 col-md-6 text-center">
+        <h3>{{ !$ctrl.isUpdate ? 'Search Farm Workers' : 'Edit Farm Worker' }}</h3>
+    </div>
+</div>
+<div ng-if="!$ctrl.isUpdate">
+    <form>
+        <div class="row" ng-hide="$ctrl.isSearched">
+            <div class="form-group col-md-offset-4 col-md-4">
+                <label for="searchEmailInput" translate="admin.farmworker.search_email_label"></label>
+                <input name="searchEmailInput" type="text" class="form-control" ng-model="$ctrl.search.email" id="searchEmailInput">
+            </div>
+            <div class="form-group col-md-offset-4 col-md-4">
+                <label for="searchPhoneInput" translate="admin.farmworker.search_phone_label"></label>
+                <input name="searchPhoneInput" type="text" class="form-control" ng-model="$ctrl.search.phone" id="searchPhoneInput">
+            </div>
+            <div class="form-group col-md-offset-4 col-md-4">
+                <label for="searchNameInput" translate="admin.farmworker.search_name_label"></label>
+                <input name="searchNameInput" type="text" class="form-control" ng-model="$ctrl.search.name" id="searchNameInput">
+            </div>
+            <br/>
+            <div class="form-group col-xs-offset-4 col-xs-4 text-center">
+                <button type="submit" class="btn btn-success" ng-click="$ctrl.doSearch()" translate="admin.farmworker.btn_search" />
+                <button class="btn btn-primary" ng-click="$ctrl.toggleSearchResult()" ng-if="$ctrl.farmworkers.length > 0" translate="admin.farmworker.btn_back_to_result"
+                />
+            </div>
+        </div>
+    </form>
+    <div class="row" ng-hide="!$ctrl.isSearched">
+        <div class="form-horizontal  panel panel-default text-center">
+            <label class=" control-label">Search by [
+            Email: <span>  {{ $ctrl.search.email || '-' }}</span>
+            Phone: <span>  {{ $ctrl.search.phone || '-' }}</span>
+            Name: <span>{{ $ctrl.search.name || '-' }}</span>
+        ]
+        </label>
+            <button class="btn-sm btn-primary" ng-click="$ctrl.toggleSearchResult()">Search Again</button>
+        </div>
+        <div class="col-sm-12">
+            <table ng-table="$ctrl.tableParams" class="table" show-filter="false" template-pagination="templates/pager.html">
+                <tr ng-repeat="user in $data">
+                    <td title="'Phone'" filter="{ UserPhoneNumber: 'text'}" sortable="'UserPhoneNumber'" style="word-break: keep-all">
+                        {{user.UserPhoneNumber}}</td>
+                    <td title="'Name'" filter="{ UserFirstName: 'text'}" sortable="'UserFirstName'">
+                        {{user.UserName}} {{user.UserLastName}}</td>
+                    <td title="'Email'" filter="{ UserEmail: 'text'}" sortable="'UserEmail'">
+                        {{user.UserEmail}}</td>
+                    <td title="'Registered Farm'" filter="{ 'CurrentFarm.FarmName': 'text'}" sortable="'CurrentFarm.FarmName'">
+                        {{user.CurrentFarm.FarmName}}</td>
+                    <td title="'Actions'">
+                        <button class="btn-primary btn-sm" ng-click="$ctrl.toggleUpdateFarmWorker(user)" translate="admin.education.document.btn_edit"
+                            style="word-break: keep-all" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div ng-if="$ctrl.isUpdate">
+    <div class="row">
+        <form name="myForm" novalidate>
+            <div class="col-md-12 margin-base-vertical">
+                <div class="row align-middle">
+                    <div class="form-group col-md-12">
+                        <label for="phoneInput" translate="profile.update.phone_label">Phone <span class="required">*</span></label>
+                        <input name="phoneInput" type="text" class="form-control" id="phoneInput" ng-model="$ctrl.updateFarmWorker.UserPhoneNumber"
+                            required>
+                        <span class="error-msg" ng-show="myForm.phoneInput.$touched &&myForm.phoneInput.$error.required" translate="profile.update.phone_required">Phone is required.</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="fnameInput" translate="profile.update.fname_label">First Name <span class="required">*</span></label>
+                        <input name="fnameInput" type="text" class="form-control" id="emailInput" ng-model="$ctrl.updateFarmWorker.UserName" required>
+                        <span class="error-msg" ng-show="myForm.fnameInput.$touched &&myForm.fnameInput.$error.required" translate="profile.update.fname_required">Email is required.</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="lnameInput" translate="profile.update.lname_label">Last Name <span class="required">*</span></label>
+                        <input name="lnameInput" type="text" class="form-control" id="lnameInput" required ng-model="$ctrl.updateFarmWorker.UserLastName">
+                        <span class="error-msg" ng-show="myForm.lnameInput.$touched &&myForm.lnameInput.$error.required" translate="profile.update.lname_required">Phone is required.</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="genderInput" translate="profile.update.gender_label">Gender <span class="required">*</span></label>
+                        <select name="genderInput" type="text" class="form-control" id="genderInput" ng-model="$ctrl.updateFarmWorker.UserGender"
+                            required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                        <span class="error-msg" ng-show="myForm.genderInput.$touched && myForm.genderInput.$error.required" translate="profile.update.gender_required">Gender is required.</span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="weightInput" translate="profile.update.weight_label">Weight</label>
+                        <input name="weightInput" type="text" class="form-control" id="weightInput" ng-model="$ctrl.updateFarmWorker.UserWeight">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="heightInput" translate="profile.update.height_label">Height</label>
+                        <input name="heightInput" type="text" class="form-control" id="heightInput" ng-model="$ctrl.updateFarmWorker.UserHeight">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="birthdateInput" translate="profile.update.birthdate_label">Phone <span class="required">*</span></label>
+                        <input name="birthdateInput" type="text" class="form-control" id="birthdateInput" ng-model="$ctrl.updateFarmWorker.UserDateOfBirth">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="emailInput" translate="profile.update.email_label">Email <span class="required">*</span></label>
+                        <input name="emailInput" type="text" class="form-control" id="emailInput" ng-model="$ctrl.updateFarmWorker.UserEmail" required>
+                        <span class="error-msg" ng-show="myForm.emailInput.$touched &&myForm.emailInput.$error.required" translate="profile.update.email_required">Email is required.</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 text-center">
+                        <button class="btn btn-success" ng-click="$ctrl.doUpdateFarmWorker()" translate="profile.update.btn_update" />
+                    </div>
+                    <div class="col-xs-6 text-center">
+                        <button class="btn btn-danger" ng-click="$ctrl.doCancelUpdate()" translate="profile.update.btn_cancel" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="row ">
+	<div class="col-md-offset-3 col-md-6 text-center">
+		<h3>Add Farmowners</h3>
+	</div>
+</div>
+<div class="row">
+    <form name="myForm" novalidate>
+        <div class="col-md-12 margin-base-vertical">
+            <div class="row align-middle">
+                 <div class="form-group col-md-12">
+                        <label for="phoneInput" translate="profile.update.phone_label">Phone <span class="required">*</span></label>
+                        <input name="phoneInput" type="text" class="form-control" id="phoneInput" ng-model="$ctrl.newFarmowner.UserPhoneNumber" required>
+                        <span class="error-msg" ng-show="myForm.phoneInput.$touched &&myForm.phoneInput.$error.required" translate="profile.update.phone_required">Phone is required.</span>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="fnameInput" translate="profile.update.fname_label">First Name <span class="required">*</span></label>
+                    <input name="fnameInput" type="text" class="form-control" id="emailInput" ng-model="$ctrl.newFarmowner.UserName" required>
+                    <span class="error-msg" ng-show="myForm.fnameInput.$touched &&myForm.fnameInput.$error.required" translate="profile.update.fname_required">Email is required.</span>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="lnameInput" translate="profile.update.lname_label">Last Name <span class="required">*</span></label>
+                    <input name="lnameInput" type="text" class="form-control" id="lnameInput" required ng-model="$ctrl.newFarmowner.UserLastName">
+                    <span class="error-msg" ng-show="myForm.lnameInput.$touched &&myForm.lnameInput.$error.required" translate="profile.update.lname_required">Phone is required.</span>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="genderInput" translate="profile.update.gender_label">Gender <span class="required">*</span></label>
+                    <select name="genderInput" type="text" class="form-control" id="genderInput" ng-model="$ctrl.newFarmowner.UserGender" required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                    <span class="error-msg" ng-show="myForm.genderInput.$touched && myForm.genderInput.$error.required" translate="profile.update.gender_required">Gender is required.</span>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="weightInput" translate="profile.update.weight_label">Weight</label>
+                    <input name="weightInput" type="text" class="form-control" id="weightInput" ng-model="$ctrl.newFarmowner.UserWeight">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="heightInput" translate="profile.update.height_label">Height</label>
+                    <input name="heightInput" type="text" class="form-control" id="heightInput" ng-model="$ctrl.newFarmowner.UserHeight">
+                </div>
+                <div class="form-group col-md-12">
+                        <label for="birthdateInput" translate="profile.update.birthdate_label">Phone <span class="required">*</span></label>
+                        <input name="birthdateInput" type="text" class="form-control" id="birthdateInput" ng-model="$ctrl.newFarmowner.UserDateOfBirth">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="emailInput" translate="profile.update.email_label">Email <span class="required">*</span></label>
+                    <input name="emailInput" type="text" class="form-control" id="emailInput" ng-model="$ctrl.newFarmowner.UserEmail" required>
+                    <span class="error-msg" ng-show="myForm.emailInput.$touched &&myForm.emailInput.$error.required" translate="profile.update.email_required">Email is required.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 text-center">
+                    <button class="btn btn-success" ng-click="$ctrl.doAddFarmowner()" translate="profile.update.btn_update"/>
+                </div>
+                <div class="col-xs-6 text-center">
+                    <button class="btn btn-danger" translate="profile.update.btn_cancel"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

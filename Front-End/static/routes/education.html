@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-md-offset-3 col-md-6 text-center">
+		<div class="btn-group btn-group-justified" role="group">
+	      	<a ng-link="['VideoEducation']" class="btn btn-group" ng-class="$ctrl.isActive('VideoEducation')? 'btn-success' : 'btn-default'">Video</a>
+	        <a ng-link="['QuizEducation']" class="btn btn-group" ng-class="$ctrl.isActive('QuizEducation')? 'btn-success' : 'btn-default'">Quiz</a>
+		    <a ng-link="['DocumentEducation']" class="btn btn-group" ng-class="$ctrl.isActive('DocumentEducation')? 'btn-success' : 'btn-default'">Document</a>
+		
+		</div>
+	</div>
+</div>
+<hr/>
+<p>
+<ng-outlet></ng-outlet>
+<p>
