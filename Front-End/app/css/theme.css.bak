@@ -1,0 +1,72 @@
+
+    body{
+        background-color: #242122;
+        color: white;
+    }
+    #navbar .navbar-brand {
+        color: rgba(255, 255, 255, 1);
+    }
+    .footer {
+        background-color:rgba(14, 117, 254, 1);
+        color:white;
+    }
+    #navbar {
+        font-size: 15px;
+        background-color: rgba(14, 117, 254, 1);
+        border: 0px;
+    }
+    #navbar .navbar-nav>li>a {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(14, 117, 254, 1);
+    }
+    #navbar .navbar-nav>li>a:hover,
+    #navbar .navbar-nav>li>a:focus {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(26, 113, 212, 1);
+    }
+    #navbar .navbar-nav>.active>a,
+    #navbar .navbar-nav>.active>a:hover,
+    #navbar .navbar-nav>.active>a:focus {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(11, 64, 138, 1);
+    }
+    #navbar .navbar-toggle {
+        border-color: #0b408a;
+    }
+    #navbar .navbar-toggle:hover,
+    #navbar .navbar-toggle:focus {
+        background-color: #0b408a;
+    }
+    #navbar .navbar-toggle .icon-bar {
+        background-color: #0b408a;
+    }
+    #navbar .navbar-toggle:hover .icon-bar,
+    #navbar .navbar-toggle:focus .icon-bar {
+        background-color: #0e75fe;
+    }
+    .list-group-item{
+    	background-color: #807E7F;
+    }
+    .panel-default{
+    	background-color:rgba(0, 0, 0, 0.2);
+    }
+    .panel-default .panel-heading{
+    	background-color:rgba(255, 255, 255, 0.7);
+    }
+    .panel-default .panel-body{
+    	background-color:rgba(255,255,255, 0.4);
+    }
+    input.form-control , textarea.form-control, select.form-control {
+        background-color:#807E7F;
+        border-radius: 4px;
+        border: 0px;
+        color: #FFF;
+    }
+
+a {
+  color: white;
+}
+a:hover,
+a:focus {
+  color: white;
+}
